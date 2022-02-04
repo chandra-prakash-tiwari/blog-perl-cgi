@@ -6,7 +6,6 @@ use strict;
 BEGIN {
     push @INC, 'C:\xampp\cgi-bin\blog\templates';
     push @INC, 'C:\xampp\cgi-bin\blog\services';
-    push @INC, 'C:\xampp\cgi-bin\blog\services\users';
 }
 
 use navigation;
@@ -14,7 +13,6 @@ use footer;
 use register;
 use database;
 use user_service;
-
 
 
 
@@ -51,10 +49,6 @@ print '<div class="card" style="width: 75%; margin: auto; padding: 2rem;">';
 print '<h1 class="card-title" style="align-self: center;">Sign Up</h1>';
 print '<form action="register.cgi" method="get">';
 print '<div class="form-group">';
-print '<label for="examplename">Name</label>';
-print '<input type="text" class="form-control" id="examplename" name="name" placeholder="Enter Name">';
-print '</div>';
-print '<div class="form-group">';
 print '<label for="exampleInputEmail1">Email address</label>';
 print '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">';
 print '<small id="emailHelp" class="form-text text-muted">We\'ll never share your email with anyone else.</small>';
@@ -62,10 +56,6 @@ print '</div>';
 print '<div class="form-group">';
 print '<label for="exampleInputPassword1">Password</label>';
 print '<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">';
-print '</div>';
-print '<div class="form-group">';
-print '<label for="exampleInputPassword1">Confirm Password</label>';
-print '<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="confirm_password">';
 print '</div>';
 print '<button class="btn btn-primary" type="submit">Signup</button>';
 print '</form>';
