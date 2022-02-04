@@ -6,6 +6,7 @@ use strict;
 BEGIN {
     push @INC, 'C:\xampp\cgi-bin\blog\templates';
     push @INC, 'C:\xampp\cgi-bin\blog\services';
+    push @INC, 'C:\xampp\cgi-bin\blog\services\users';
 }
 
 use navigation;
@@ -14,6 +15,7 @@ use register;
 use article_service;
 use database;
 use user_service;
+
 
 
 
