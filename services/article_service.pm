@@ -6,6 +6,13 @@ use warnings;
 use Exporter;
 use Scalar::Util qw(blessed);
 
+BEGIN{
+    push @INC, 'C:\xampp\cgi-bin\blog\templates';
+    push @INC, 'C:\xampp\cgi-bin\blog\services';
+    push @INC, 'C:\xampp\cgi-bin\blog\services\articles';
+}
+
+my $dbh="";
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw();
@@ -34,16 +41,12 @@ sub create_articles{
 
 
 sub create_table{
-    my $dbh = shift;
     my $sql = "CREATE TABLE IF NOT EXISTS articles (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(300) NOT NULL,
         slug VARCHAR(300) NOT NULL UNIQUE=TRUE,
         author INT UNSIGNED NOT NULL,
         content TEXT NOT NULL,
-        created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        status SET('draft','published') NOT NULL DEFAULT 'draft',
-        FOREIGN KEY (author) REFERENCES users(id)
     )";
     my $sth = $dbh->prepare($sql);
     $sth->execute();

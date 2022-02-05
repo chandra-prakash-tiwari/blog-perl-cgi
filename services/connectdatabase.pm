@@ -1,4 +1,4 @@
-package database;
+package connectdatabase;
 use strict;
 use warnings;
 use DBI;
@@ -8,7 +8,7 @@ our @ISA = qw(Exporter);
 our @EXPORT = qw(connectDB);
 
 
-sub connect{
+sub connectDB{
     return DBI->connect("DBI:SQLite:database=test.db", "", "", {'RaiseError' => 1});
 }
 
